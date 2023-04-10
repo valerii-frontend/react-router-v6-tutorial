@@ -1,0 +1,255 @@
+@import 'reset';
+
+// INDEX
+.init-screen {
+  $color: rgba(#333, 0.5);
+  color: $color;
+  margin-top: 100px;
+  padding: 0 20px;
+  text-align: center;
+  svg {
+    display: block;
+    max-width: 150px;
+    margin: 20px auto;
+    path {
+      fill: $color;
+    }
+  }
+  a {
+    color: $color;
+  }
+  span {
+    color: #3376b4;
+  }
+}
+
+// SIDEBAR
+.sidebar {
+  background-color: #f1f1f1;
+  padding: 30px;
+  max-width: fit-content;
+  min-height: 100vh;
+  &__row {
+    display: flex;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+  }
+}
+
+// SEARCH FORM
+.search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  &__input {
+    width: 200px;
+    height: 40px;
+    margin-right: 10px;
+    padding: 0 0 0 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: url('/search-icon.svg') 10px/20px 20px no-repeat;
+    &:focus {
+      outline: none;
+      background-color: #dff9e0;
+    }
+  }
+  &__spinner {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 0.6s infinite linear;
+    margin-right: 10px;
+    &[hidden] {
+      display: none;
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+// ERROR PAGE
+.error-page {
+  max-width: 1200px;
+  margin: 100px auto 0;
+  padding: 0 20px;
+  h1 {
+    margin-bottom: 20px;
+  }
+  &__text {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+  &__info {
+    color: lightslategray;
+  }
+}
+
+// CONTACT
+.contact {
+  display: flex;
+  max-width: 1200px;
+  margin: 20px auto;
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__avatar {
+    margin-right: 20px;
+    flex: 0 0 150px;
+    min-width: 150px;
+    min-height: 150px;
+    background-color: rgba(100, 100, 100, 0.5);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    & img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__name {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1 1 auto;
+    margin-bottom: 10px;
+  }
+  &__twitter {
+    margin-bottom: 10px;
+    a {
+      color: rgb(0, 105, 170);
+    }
+  }
+  &__notes {
+    margin-bottom: 20px;
+  }
+  &__controls {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.favorite {
+  background-color: transparent;
+  border: none;
+  line-height: 1;
+  font-size: 28px;
+  color: gold;
+  cursor: pointer;
+}
+
+// BTN
+.btn {
+  display: inline-block;
+  height: 40px;
+  padding: 0 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: #3e8e41;
+  }
+  &-edit {
+    background-color: #4c7faf;
+    &:hover {
+      background-color: #3376b4;
+    }
+  }
+  &-delete {
+    background-color: #af4c4c;
+    &:hover {
+      background-color: #812e2e;
+    }
+  }
+}
+
+// EDIT PAGE
+.edit {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  max-width: 750px;
+  width: 100%;
+  padding: 0 30px;
+  &__item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    input {
+      width: 100%;
+      height: 40px;
+      padding: 0 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      flex: 1 1 auto;
+    }
+    textarea {
+      width: 100%;
+      resize: none;
+      padding: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      background-color: rgb(232, 232, 255);
+    }
+    span,
+    label {
+      line-height: 40px;
+      flex: 0 0 100px;
+    }
+  }
+  &__controls {
+    padding-left: 110px;
+    *:first-child {
+      margin-right: 10px;
+    }
+  }
+}
+
+.active {
+  color: white;
+  background-color: #4c7faf;
+}
+.pending {
+  color: #4c7faf;
+  background-color: lightgrey;
+}
+.loading {
+  opacity: 0.2;
+  filter: grayscale(1);
+}
+.destroy-error {
+  margin-top: 100px;
+  padding: 0 20px;
+  color: orangered;
+}
